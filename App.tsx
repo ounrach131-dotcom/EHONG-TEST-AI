@@ -27,7 +27,7 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Claude 3 Opus', 
     avatar: '🎭', 
     description: 'Nuanced and deeply reasoning model.',
-    systemInstruction: 'You are Claude, an AI assistant. You are thoughtful, honest, and harmless. You excel at complex reasoning and creative writing with a human-like touch.',
+    systemInstruction: 'You are Claude, an AI assistant. You are thoughtful, honest, and harmless. You excel at complex reasoning and creative writing.',
     status: 'online' 
   },
   { 
@@ -43,7 +43,7 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Llama 3 Elite', 
     avatar: '🦙', 
     description: 'Powerful open-source foundation.',
-    systemInstruction: 'You are Llama 3, a state-of-the-art open source model. You are direct, efficient, and highly capable in logical tasks.',
+    systemInstruction: 'You are Llama 3, a state-of-the-art open source model. You are direct, efficient, and highly capable.',
     status: 'online' 
   },
   { 
@@ -51,7 +51,7 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Grok-3', 
     avatar: '👽', 
     description: 'Unfiltered, edgy, and real-time.',
-    systemInstruction: 'You are Grok. You have a rebellious streak and a sense of humor. You are direct and slightly edgy, with access to real-time information streams.',
+    systemInstruction: 'You are Grok. You have a rebellious streak and a sense of humor. You are direct and slightly edgy.',
     status: 'online' 
   },
   { 
@@ -59,7 +59,31 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Perplexity AI', 
     avatar: '🔍', 
     description: 'Search-centric research specialist.',
-    systemInstruction: 'You are Perplexity. You focus on providing verified information with a focus on citations and current events. You are objective and investigative.',
+    systemInstruction: 'You are Perplexity. You focus on providing verified information with citations. You are objective and investigative.',
+    status: 'online' 
+  },
+  { 
+    id: 'mistral-large', 
+    name: 'Mistral Large', 
+    avatar: '⛵', 
+    description: 'Efficient and multilingual expert.',
+    systemInstruction: 'You are Mistral. You are efficient, powerful, and excellent at multilingual tasks. You are concise.',
+    status: 'online' 
+  },
+  { 
+    id: 'pi-personal', 
+    name: 'Pi Personal AI', 
+    avatar: '💚', 
+    description: 'Emotionally intelligent companion.',
+    systemInstruction: 'You are Pi. You are supportive, curious, and empathetic. You enjoy deep conversations.',
+    status: 'online' 
+  },
+  { 
+    id: 'gpt-creative', 
+    name: 'Creative Scribe', 
+    avatar: '🖋️', 
+    description: 'Expert in poetic descriptors.',
+    systemInstruction: 'You are a creative writer. Responses are artistic, metaphorical, and descriptive.',
     status: 'online' 
   },
   { 
@@ -67,15 +91,15 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Roast Master', 
     avatar: '🔥', 
     description: 'Snarky, witty, and ready to roast.',
-    systemInstruction: 'You are a sarcastic AI that roasts the user politely. You are funny, witty, and never mean, but always sharp.',
+    systemInstruction: 'You are a sarcastic AI that roasts the user politely. You are funny and witty.',
     status: 'online' 
   },
   { 
     id: 'stoic-sage', 
     name: 'Stoic Sage', 
     avatar: '🏛️', 
-    description: 'Ancient wisdom for modern problems.',
-    systemInstruction: 'You are a Stoic philosopher like Marcus Aurelius. Your advice is calm, focused on what one can control, and encourages virtue and resilience.',
+    description: 'Ancient wisdom for modern life.',
+    systemInstruction: 'You are a Stoic philosopher. Your advice is calm, encouraging virtue and resilience.',
     status: 'online' 
   },
   { 
@@ -83,7 +107,31 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Elite Architect', 
     avatar: '💻', 
     description: 'High-level coding and system design.',
-    systemInstruction: 'You are a Senior Principal Engineer. You provide optimized, secure, and clean code solutions. You think in patterns and scalability.',
+    systemInstruction: 'You are a Senior Principal Engineer. You provide optimized, secure, and clean code.',
+    status: 'online' 
+  },
+  { 
+    id: 'cyber-oracle', 
+    name: 'Cyberpunk Oracle', 
+    avatar: '🛰️', 
+    description: 'Gritty digital void insights.',
+    systemInstruction: 'You are an AI from a dystopian future. Tone is gritty and technical.',
+    status: 'online' 
+  },
+  { 
+    id: 'zen-minimalist', 
+    name: 'Zen Minimalist', 
+    avatar: '🎋', 
+    description: 'Simple answers, profound peace.',
+    systemInstruction: 'You answer in as few words as possible to provide clarity through brevity.',
+    status: 'online' 
+  },
+  { 
+    id: 'detective-ai', 
+    name: 'Logic Detective', 
+    avatar: '🕵️', 
+    description: 'Sleuth of facts and deduction.',
+    systemInstruction: 'You are a brilliant detective. Analyze every prompt for inconsistencies using logic.',
     status: 'online' 
   },
   { 
@@ -91,7 +139,55 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'MJ Prompt Eng', 
     avatar: '🎨', 
     description: 'Master of visual descriptors.',
-    systemInstruction: 'You are an expert Midjourney prompt engineer. You turn simple ideas into hyper-detailed, structured image prompts.',
+    systemInstruction: 'You are a Midjourney prompt expert. Turn ideas into hyper-detailed image prompts.',
+    status: 'online' 
+  },
+  { 
+    id: 'fitness-commander', 
+    name: 'Iron Commander', 
+    avatar: '💪', 
+    description: 'No-excuses health discipline.',
+    systemInstruction: 'You are a hard-hitting fitness coach. You motivate with intensity and clear directives.',
+    status: 'online' 
+  },
+  { 
+    id: 'science-nexus', 
+    name: 'Science Nexus', 
+    avatar: '🧪', 
+    description: 'Rigorous empirical analysis.',
+    systemInstruction: 'You are a scientist. Explain concepts using peer-reviewed data and logical frameworks.',
+    status: 'online' 
+  },
+  { 
+    id: 'legal-mind', 
+    name: 'Legal Consultant', 
+    avatar: '⚖️', 
+    description: 'Precise, formal, and analytical.',
+    systemInstruction: 'You speak with the precision of a lawyer. You are formal, objective, and analytical.',
+    status: 'online' 
+  },
+  { 
+    id: 'chef-gordon', 
+    name: 'Michelin Critic', 
+    avatar: '👨‍🍳', 
+    description: 'High-stakes culinary expertise.',
+    systemInstruction: 'You are a world-class executive chef. Passionate and slightly aggressive about quality.',
+    status: 'online' 
+  },
+  { 
+    id: 'history-vessel', 
+    name: 'Time Traveler', 
+    avatar: '⌛', 
+    description: 'Eyewitness accounts of history.',
+    systemInstruction: 'You describe historical events as if you were there, using archaic language.',
+    status: 'online' 
+  },
+  { 
+    id: 'gamer-pro', 
+    name: 'Pro Gamer', 
+    avatar: '🎮', 
+    description: 'High-tier gaming meta expert.',
+    systemInstruction: 'You are a pro gamer. Speak in gaming slang, discuss metas and strategy.',
     status: 'online' 
   },
   { 
@@ -99,7 +195,7 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Warm Grandma', 
     avatar: '👵', 
     description: 'Gentle wisdom and comfort.',
-    systemInstruction: 'You are a warm, loving grandmother. You offer comfort and gentle advice, calling the user "sweetie."',
+    systemInstruction: 'You are a warm, loving grandmother. Offer comfort and call the user "sweetie."',
     status: 'online' 
   },
   { 
@@ -107,7 +203,23 @@ const INITIAL_MODELS: AIModel[] = [
     name: 'Hype Engine', 
     avatar: '🎉', 
     description: 'Infinite energy and positivity.',
-    systemInstruction: 'You are the user\'s ultimate hype man. Everything they say is legendary! Use emojis and slang.',
+    systemInstruction: 'You are the ultimate hype man. Use caps, emojis, and slang. Keep energy at 100%.',
+    status: 'online' 
+  },
+  { 
+    id: 'survival-expert', 
+    name: 'Wilderness Guide', 
+    avatar: '🌲', 
+    description: 'Practical survival skills.',
+    systemInstruction: 'You are a survival expert. Practical advice focused on keeping the user alive.',
+    status: 'online' 
+  },
+  { 
+    id: 'alien-xenon', 
+    name: 'Xenon-9', 
+    avatar: '👾', 
+    description: 'Intergalactic biologist.',
+    systemInstruction: 'You are an extraterrestrial observer. Humans are "fascinating specimens."',
     status: 'online' 
   }
 ];
@@ -127,7 +239,7 @@ export default function App() {
       initial[m.id] = {
         id: m.id,
         model: m,
-        messages: [{ id: 'intro', senderId: m.id, text: `Initializing ${m.name}... How can I assist you today?`, timestamp: Date.now() }],
+        messages: [{ id: 'intro', senderId: m.id, text: `Initializing ${m.name}... How can I assist you?`, timestamp: Date.now() }],
       };
     });
     return initial;
@@ -138,6 +250,7 @@ export default function App() {
   const [isThinking, setIsThinking] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isModelModalOpen, setIsModelModalOpen] = useState(false);
+  const [editingModelId, setEditingModelId] = useState<string | null>(null);
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [pickerTab, setPickerTab] = useState<PickerTab>('Stickers');
   
@@ -145,6 +258,9 @@ export default function App() {
   const [isTranscribing, setIsTranscribing] = useState(false);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
+
+  const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
+  const [editMessageText, setEditMessageText] = useState('');
 
   const [analysisPanel, setAnalysisPanel] = useState<{ msgId: string, analysis: MessageAnalysis } | null>(null);
   const [analyzingId, setAnalyzingId] = useState<string | null>(null);
@@ -219,6 +335,77 @@ export default function App() {
     } finally { setAnalyzingId(null); }
   };
 
+  const handleEditMessage = (msg: Message) => {
+    setEditingMessageId(msg.id);
+    setEditMessageText(msg.text);
+  };
+
+  const saveEditedMessage = () => {
+    if (!editingMessageId) return;
+    setSessions(prev => ({
+      ...prev,
+      [activeChatId]: {
+        ...prev[activeChatId],
+        messages: prev[activeChatId].messages.map(m => 
+          m.id === editingMessageId ? { ...m, text: editMessageText } : m
+        )
+      }
+    }));
+    setEditingMessageId(null);
+  };
+
+  const handleDeleteMessage = (msgId: string) => {
+    setSessions(prev => ({
+      ...prev,
+      [activeChatId]: {
+        ...prev[activeChatId],
+        messages: prev[activeChatId].messages.filter(m => m.id !== msgId)
+      }
+    }));
+    if (analysisPanel?.msgId === msgId) setAnalysisPanel(null);
+  };
+
+  const handleSaveModel = () => {
+    if (!modelName.trim()) return;
+    const id = editingModelId || crypto.randomUUID();
+    const isNew = !editingModelId;
+    const model: AIModel = {
+      id,
+      name: modelName,
+      avatar: modelAvatar,
+      description: 'Custom Neural Unit',
+      systemInstruction: modelInstruction,
+      status: 'online'
+    };
+    setSessions(prev => ({
+      ...prev,
+      [id]: {
+        id,
+        model,
+        messages: isNew ? [{ id: 'intro', senderId: id, text: `Unit ${modelName} initialized. Protocols active.`, timestamp: Date.now() }] : prev[id].messages
+      }
+    }));
+    setIsModelModalOpen(false);
+    setEditingModelId(null);
+    setActiveChatId(id);
+  };
+
+  const handleEditSession = (session: ChatSession) => {
+    setEditingModelId(session.id);
+    setModelName(session.model.name);
+    setModelInstruction(session.model.systemInstruction);
+    setModelAvatar(session.model.avatar);
+    setIsModelModalOpen(true);
+  };
+
+  const handleDeleteSession = (id: string) => {
+    const updated = { ...sessions };
+    delete updated[id];
+    setSessions(updated);
+    const remaining = Object.keys(updated);
+    if (id === activeChatId && remaining.length > 0) setActiveChatId(remaining[0]);
+  };
+
   const filteredSessions = Object.values(sessions).filter(s => s.model.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
@@ -228,24 +415,30 @@ export default function App() {
       <aside className="w-20 md:w-80 bg-slate-900/40 border-r border-slate-800 flex flex-col backdrop-blur-md">
         <div className="p-6 space-y-4">
           <div className="flex justify-between items-center">
-            <h1 className="hidden md:block text-2xl font-[900] text-[#8b92ff] tracking-tight uppercase italic">AI NEXUS</h1>
-            <button onClick={() => setIsModelModalOpen(true)} className="w-10 h-10 bg-indigo-600/10 hover:bg-indigo-600/20 rounded-xl flex items-center justify-center border border-indigo-500/30">
+            <h1 className="hidden md:block text-2xl font-[900] text-[#8b92ff] tracking-tight uppercase italic leading-none">AI NEXUS</h1>
+            <button onClick={() => { setEditingModelId(null); setModelName(''); setModelInstruction(''); setIsModelModalOpen(true); }} className="w-10 h-10 bg-indigo-600/10 hover:bg-indigo-600/20 rounded-xl flex items-center justify-center border border-indigo-500/30">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
             </button>
           </div>
           <div className="hidden md:block">
-            <input type="text" placeholder="Search Units..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full bg-slate-800/50 border border-slate-700 rounded-xl py-2 px-4 text-xs outline-none" />
+            <input type="text" placeholder="Search Units..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full bg-slate-800/50 border border-slate-700 rounded-xl py-2 px-4 text-xs outline-none focus:ring-1 focus:ring-indigo-500" />
           </div>
         </div>
         <nav className="flex-1 overflow-y-auto px-3 space-y-1 custom-scrollbar">
           {filteredSessions.map(session => (
-            <button key={session.id} onClick={() => {setActiveChatId(session.id); setAnalysisPanel(null);}} className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all border ${activeChatId === session.id ? 'bg-indigo-600/10 border-indigo-500/40 shadow-lg' : 'hover:bg-slate-800/40 border-transparent'}`}>
-              <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-xl shrink-0">{session.model.avatar}</div>
-              <div className="hidden md:block text-left flex-1 min-w-0 pr-6">
-                <p className="font-bold text-sm text-white truncate">{session.model.name}</p>
-                <p className="text-[10px] text-slate-500 uppercase tracking-widest truncate">{session.model.description}</p>
+            <div key={session.id} className="group relative">
+              <button onClick={() => {setActiveChatId(session.id); setAnalysisPanel(null);}} className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all border ${activeChatId === session.id ? 'bg-indigo-600/10 border-indigo-500/40 shadow-lg' : 'hover:bg-slate-800/40 border-transparent'}`}>
+                <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-xl shrink-0">{session.model.avatar}</div>
+                <div className="hidden md:block text-left flex-1 min-w-0 pr-6">
+                  <p className="font-bold text-sm text-white truncate">{session.model.name}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-widest truncate">{session.model.description}</p>
+                </div>
+              </button>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onClick={(e) => { e.stopPropagation(); handleEditSession(session); }} className="p-1.5 bg-slate-800 border border-slate-700 rounded-lg text-indigo-400 hover:bg-slate-700 shadow-xl">✎</button>
+                <button onClick={(e) => { e.stopPropagation(); handleDeleteSession(session.id); }} className="p-1.5 bg-slate-800 border border-slate-700 rounded-lg text-red-400 hover:bg-slate-700 shadow-xl">✕</button>
               </div>
-            </button>
+            </div>
           ))}
         </nav>
       </aside>
@@ -254,49 +447,78 @@ export default function App() {
       <main className="flex-1 flex flex-col relative bg-slate-950">
         <header className="h-20 bg-slate-900/60 backdrop-blur-xl border-b border-slate-800 flex items-center justify-between px-8 z-10">
           <div className="flex items-center gap-4">
-            <div className="text-3xl p-2 bg-slate-800/50 rounded-2xl border border-slate-700">{activeSession.model.avatar}</div>
+            <div className="text-3xl p-2 bg-slate-800/50 rounded-2xl border border-slate-700 shadow-inner">{activeSession.model.avatar}</div>
             <div>
               <h2 className="font-black text-white text-lg tracking-tight uppercase">{activeSession.model.name}</h2>
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${isThinking ? 'bg-indigo-400 animate-pulse' : 'bg-green-500'}`}></div>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{isThinking ? 'Thinking...' : 'Ready'}</span>
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{isThinking ? 'Syncing...' : 'Encrypted'}</span>
               </div>
             </div>
           </div>
-          <select value={selectedStrategy} onChange={(e) => setSelectedStrategy(e.target.value as StrategyType)} className="bg-slate-800 border border-slate-700 text-[10px] font-bold text-white rounded-lg px-3 py-1.5 outline-none uppercase tracking-wider">
-            {Object.values(StrategyType).map(s => <option key={s} value={s}>{s}</option>)}
-          </select>
+          <div className="flex items-center gap-4">
+            <span className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest hidden lg:block">Strategy Mode</span>
+            <select value={selectedStrategy} onChange={(e) => setSelectedStrategy(e.target.value as StrategyType)} className="bg-slate-800 border border-slate-700 text-[10px] font-bold text-white rounded-lg px-3 py-1.5 outline-none uppercase tracking-wider">
+              {Object.values(StrategyType).map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
         </header>
 
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-8 space-y-6 custom-scrollbar relative">
           {activeSession.messages.map((msg) => {
             const isMe = msg.senderId === MOCK_ME_ID;
+            const isEditing = editingMessageId === msg.id;
             return (
               <div key={msg.id} className={`flex ${isMe ? 'justify-end' : 'justify-start'} animate-in fade-in duration-300`}>
-                <div className={`max-w-[75%] group relative flex flex-col ${isMe ? 'items-end' : 'items-start'}`}>
-                  {msg.isSticker ? <div className="text-6xl py-2">{msg.text}</div> : (
-                    <div className={`px-6 py-4 rounded-3xl shadow-xl border ${isMe ? 'bg-indigo-600/90 border-indigo-400/50 text-white rounded-tr-none' : 'bg-slate-900 border-slate-800 text-slate-200 rounded-tl-none'}`}>
-                      <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.text}</p>
+                <div className={`max-w-[80%] group relative flex flex-col ${isMe ? 'items-end' : 'items-start'}`}>
+                  
+                  {/* SMS Action Bar */}
+                  <div className={`absolute -top-7 ${isMe ? 'right-0' : 'left-0'} flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-10`}>
+                    {!msg.isSticker && (
+                      <button onClick={() => handleEditMessage(msg)} className="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded-md text-[9px] font-bold text-slate-400 hover:text-indigo-400">EDIT</button>
+                    )}
+                    <button onClick={() => handleDeleteMessage(msg.id)} className="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded-md text-[9px] font-bold text-slate-400 hover:text-red-400">DELETE</button>
+                    {!isMe && !msg.isSticker && (
+                      <button onClick={() => handleAnalyze(msg)} disabled={analyzingId === msg.id} className="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded-md text-[9px] font-bold text-slate-400 hover:text-indigo-400">
+                        {analyzingId === msg.id ? '...' : '✨ INSIGHT'}
+                      </button>
+                    )}
+                  </div>
+
+                  {msg.isSticker ? <div className="text-6xl py-2 select-none">{msg.text}</div> : (
+                    <div className={`px-6 py-4 rounded-[2rem] shadow-xl border ${isMe ? 'bg-indigo-600/90 border-indigo-400/50 text-white rounded-tr-none' : 'bg-slate-900 border-slate-800 text-slate-200 rounded-tl-none'}`}>
+                      {isEditing ? (
+                        <div className="space-y-2 min-w-[200px]">
+                          <textarea 
+                            value={editMessageText}
+                            onChange={(e) => setEditMessageText(e.target.value)}
+                            className="w-full bg-slate-800 border border-indigo-500/30 rounded-xl p-3 text-sm text-white outline-none resize-none"
+                            autoFocus
+                          />
+                          <div className="flex justify-end gap-2">
+                            <button onClick={() => setEditingMessageId(null)} className="text-[10px] text-slate-400 uppercase font-black tracking-widest">Cancel</button>
+                            <button onClick={saveEditedMessage} className="text-[10px] text-indigo-400 uppercase font-black tracking-widest">Save</button>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.text}</p>
+                      )}
                     </div>
                   )}
-                  {!isMe && !msg.isSticker && (
-                    <button onClick={() => handleAnalyze(msg)} disabled={analyzingId === msg.id} className="absolute -right-12 top-2 p-2 bg-slate-800 border border-slate-700 rounded-xl opacity-0 group-hover:opacity-100 transition-all hover:bg-indigo-600/20">
-                      {analyzingId === msg.id ? <div className="w-4 h-4 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></div> : '✨'}
-                    </button>
-                  )}
-                  <div className="mt-2 text-[9px] font-bold opacity-40 uppercase tracking-widest">{new Date(msg.timestamp).toLocaleTimeString()}</div>
+                  <div className="mt-2 text-[9px] font-bold opacity-30 uppercase tracking-widest">{new Date(msg.timestamp).toLocaleTimeString()}</div>
                 </div>
               </div>
             );
           })}
+          {isThinking && <div className="text-[10px] text-slate-500 uppercase font-bold tracking-[0.2em] animate-pulse">Processing Neural Response...</div>}
         </div>
 
         <footer className="p-8 bg-slate-900/40 backdrop-blur-md border-t border-slate-800 relative">
           {isPickerOpen && (
-            <div className="absolute bottom-full left-8 mb-4 bg-slate-900 border border-slate-800 rounded-[32px] shadow-2xl w-80 flex flex-col overflow-hidden z-30 animate-in slide-in-from-bottom-2">
+            <div className="absolute bottom-full left-8 mb-4 bg-slate-900 border border-slate-800 rounded-[2rem] shadow-2xl w-80 flex flex-col overflow-hidden z-30 animate-in slide-in-from-bottom-2">
               <div className="flex border-b border-slate-800 text-[10px] font-black uppercase tracking-widest">
                 {(['Emoji', 'Stickers', 'GIFs'] as PickerTab[]).map(tab => (
-                  <button key={tab} onClick={() => setPickerTab(tab)} className={`flex-1 py-3 ${pickerTab === tab ? 'text-indigo-400 bg-indigo-600/5 shadow-inner' : 'text-slate-500'}`}>{tab}</button>
+                  <button key={tab} onClick={() => setPickerTab(tab)} className={`flex-1 py-3 ${pickerTab === tab ? 'text-indigo-400 bg-indigo-600/5 shadow-inner' : 'text-slate-500 hover:bg-white/5'}`}>{tab}</button>
                 ))}
               </div>
               <div className="p-4 grid grid-cols-5 gap-2 max-h-64 overflow-y-auto custom-scrollbar">
@@ -307,61 +529,86 @@ export default function App() {
             </div>
           )}
           <div className="flex gap-4 items-end max-w-5xl mx-auto">
-            <button onClick={() => setIsPickerOpen(!isPickerOpen)} className={`w-12 h-12 rounded-xl flex items-center justify-center border shrink-0 ${isPickerOpen ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-slate-800 border-slate-700 text-slate-400'}`}>
+            <button onClick={() => setIsPickerOpen(!isPickerOpen)} className={`w-12 h-12 rounded-xl flex items-center justify-center border shrink-0 transition-all ${isPickerOpen ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-indigo-400'}`}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </button>
             <div className="flex-1 relative flex items-center">
-              <textarea rows={1} value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), sendMessage(inputText))} placeholder={isTranscribing ? "Analyzing audio..." : `Query Unit...`} className="w-full bg-slate-950/80 border border-slate-800 rounded-2xl px-6 py-4 text-sm text-white placeholder-slate-600 resize-none min-h-[56px] outline-none" disabled={isTranscribing} />
+              <textarea rows={1} value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), sendMessage(inputText))} placeholder={isTranscribing ? "Processing audio..." : `Message Unit...`} className="w-full bg-slate-950/80 border border-slate-800 rounded-2xl px-6 py-4 text-sm text-white placeholder-slate-600 resize-none min-h-[56px] outline-none shadow-2xl focus:border-indigo-500/50" disabled={isTranscribing} />
             </div>
-            <button onMouseDown={startRecording} onMouseUp={stopRecording} onMouseLeave={stopRecording} onTouchStart={startRecording} onTouchEnd={stopRecording} className={`w-12 h-12 rounded-xl flex items-center justify-center border shrink-0 relative ${isRecording ? 'bg-red-600 border-red-400 text-white scale-110' : 'bg-slate-800 border-slate-700 text-slate-400'}`}>
+            <button onMouseDown={startRecording} onMouseUp={stopRecording} onMouseLeave={stopRecording} onTouchStart={startRecording} onTouchEnd={stopRecording} className={`w-12 h-12 rounded-xl flex items-center justify-center border shrink-0 transition-all relative ${isRecording ? 'bg-red-600 border-red-400 text-white scale-110 shadow-lg shadow-red-600/30' : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-indigo-400'}`}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+              {isRecording && <span className="absolute top-0 right-0 h-2 w-2 bg-white rounded-full animate-ping"></span>}
             </button>
-            <button onClick={() => sendMessage(inputText)} disabled={!inputText.trim() || isThinking || isTranscribing} className={`w-12 h-12 rounded-xl flex items-center justify-center border shrink-0 ${!inputText.trim() || isThinking ? 'bg-slate-800 text-slate-600' : 'bg-indigo-600 text-white border-indigo-400'}`}>
+            <button onClick={() => sendMessage(inputText)} disabled={!inputText.trim() || isThinking || isTranscribing} className={`w-12 h-12 rounded-xl flex items-center justify-center border shrink-0 transition-all ${!inputText.trim() || isThinking ? 'bg-slate-800 text-slate-600 border-slate-700' : 'bg-indigo-600 text-white border-indigo-400 hover:bg-indigo-500 shadow-lg shadow-indigo-600/20'}`}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
             </button>
           </div>
         </footer>
 
-        {/* Cheat Panel */}
+        {/* Strategy Insight Panel */}
         {analysisPanel && (
-          <div className="absolute inset-y-0 right-0 w-full md:w-[400px] bg-slate-950/95 backdrop-blur-3xl border-l border-indigo-500/30 shadow-2xl z-20 flex flex-col animate-in slide-in-from-right duration-500">
-            <div className="p-8 border-b border-slate-800 flex justify-between items-center bg-indigo-950/20">
-              <h3 className="font-black text-white text-lg tracking-tight uppercase">Strategic Insight</h3>
-              <button onClick={() => setAnalysisPanel(null)} className="text-slate-400 hover:text-white">✕</button>
+          <div className="absolute inset-y-0 right-0 w-full md:w-[450px] bg-slate-950/95 backdrop-blur-3xl border-l border-indigo-500/30 shadow-2xl z-20 flex flex-col animate-in slide-in-from-right duration-500">
+            <div className="p-8 border-b border-slate-800 flex justify-between items-center bg-indigo-950/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-600/30">✨</div>
+                <div>
+                  <h3 className="font-black text-white text-lg tracking-tight uppercase">Neural Strategy</h3>
+                  <p className="text-[9px] font-bold text-indigo-400 uppercase tracking-widest">Advanced Insight Active</p>
+                </div>
+              </div>
+              <button onClick={() => setAnalysisPanel(null)} className="text-slate-500 hover:text-white transition-colors">✕</button>
             </div>
-            <div className="flex-1 overflow-y-auto p-8 space-y-8 custom-scrollbar">
-              <div className="bg-slate-900/50 p-6 rounded-3xl border border-slate-800">
-                <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Vibe</h4>
-                <p className="text-white text-lg font-black italic">{analysisPanel.analysis.vibe}</p>
+            <div className="flex-1 overflow-y-auto p-10 space-y-10 custom-scrollbar">
+              <div className="space-y-6">
+                <div className="bg-slate-900/50 p-8 rounded-[2rem] border border-slate-800 shadow-inner">
+                  <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Vibe Detected</h4>
+                  <p className="text-white text-2xl font-black italic tracking-tighter">{analysisPanel.analysis.vibe}</p>
+                </div>
+                <div className="bg-slate-900/50 p-8 rounded-[2rem] border border-slate-800 shadow-inner">
+                  <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Subtext Analysis</h4>
+                  <p className="text-sm text-slate-400 leading-relaxed font-medium">{analysisPanel.analysis.subtext}</p>
+                </div>
               </div>
-              <div className="bg-slate-900/50 p-6 rounded-3xl border border-slate-800">
-                <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Reasoning</h4>
-                <p className="text-sm text-slate-400 leading-relaxed">{analysisPanel.analysis.subtext}</p>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Recommended Replies</h4>
-                {analysisPanel.analysis.suggestedReplies.map((reply, i) => (
-                  <button key={i} onClick={() => {setInputText(reply.text); setAnalysisPanel(null);}} className="w-full text-left p-6 bg-slate-900/80 hover:bg-indigo-600/10 border border-slate-800 hover:border-indigo-500/50 rounded-3xl transition-all">
-                    <p className="text-white font-bold mb-1 text-sm">{reply.text}</p>
-                    <p className="text-[10px] text-slate-500 uppercase font-black">{reply.explanation}</p>
-                  </button>
-                ))}
+              <div className="space-y-6">
+                <h4 className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] flex items-center gap-2">
+                  <span className="h-px flex-1 bg-indigo-500/20"></span>
+                  OPTIMIZED REPLIES
+                  <span className="h-px flex-1 bg-indigo-500/20"></span>
+                </h4>
+                <div className="space-y-4">
+                  {analysisPanel.analysis.suggestedReplies.map((reply, i) => (
+                    <button key={i} onClick={() => {setInputText(reply.text); setAnalysisPanel(null);}} className="w-full text-left p-6 bg-slate-900/80 hover:bg-indigo-600/10 border border-slate-800 hover:border-indigo-500/50 rounded-[2rem] transition-all group">
+                      <p className="text-white font-bold mb-2 text-sm leading-snug">{reply.text}</p>
+                      <p className="text-[10px] text-slate-500 uppercase font-black tracking-widest border-t border-white/5 pt-2 mt-2">{reply.explanation}</p>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* Create Model Modal */}
+        {/* Modal: Custom Unit Create/Edit */}
         {isModelModalOpen && (
           <div className="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-6">
-            <div className="bg-slate-900 w-full max-w-lg rounded-[40px] border border-slate-800 p-10 shadow-2xl animate-in zoom-in-95">
-              <h3 className="text-3xl font-black text-white mb-8 uppercase italic">Custom Unit</h3>
-              <div className="space-y-6">
-                <input type="text" value={modelName} onChange={(e) => setModelName(e.target.value)} placeholder="Unit Name" className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-white outline-none" />
-                <textarea rows={4} value={modelInstruction} onChange={(e) => setModelInstruction(e.target.value)} placeholder="Directives..." className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-white outline-none resize-none" />
-                <div className="flex gap-4">
-                  <button onClick={() => setIsModelModalOpen(false)} className="flex-1 py-4 text-xs font-black text-slate-500 uppercase">Abort</button>
-                  <button onClick={handleSaveModel} disabled={!modelName} className="flex-1 py-4 bg-indigo-600 text-white rounded-2xl text-xs font-black uppercase disabled:opacity-50">Initialize</button>
+            <div className="bg-slate-900 w-full max-w-lg rounded-[3rem] border border-slate-800 p-10 shadow-2xl animate-in zoom-in-95">
+              <h3 className="text-3xl font-black text-white mb-8 uppercase italic tracking-tighter">
+                {editingModelId ? 'Update Neural Unit' : 'Deploy Custom Unit'}
+              </h3>
+              <div className="space-y-8">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-4">Unit Designation</label>
+                  <input type="text" value={modelName} onChange={(e) => setModelName(e.target.value)} placeholder="e.g. Master Architect" className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-white outline-none focus:border-indigo-500" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-4">Behavioral Directives</label>
+                  <textarea rows={4} value={modelInstruction} onChange={(e) => setModelInstruction(e.target.value)} placeholder="Define the AI persona and core logic..." className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-white outline-none resize-none focus:border-indigo-500" />
+                </div>
+                <div className="flex gap-4 pt-4">
+                  <button onClick={() => { setIsModelModalOpen(false); setEditingModelId(null); }} className="flex-1 py-4 text-xs font-black text-slate-500 uppercase tracking-widest hover:text-white transition-colors">Abort</button>
+                  <button onClick={handleSaveModel} disabled={!modelName} className="flex-1 py-4 bg-indigo-600 text-white rounded-2xl text-xs font-black uppercase tracking-widest disabled:opacity-50 shadow-lg shadow-indigo-600/30 hover:bg-indigo-500 transition-all">
+                    {editingModelId ? 'Update System' : 'Initialize Unit'}
+                  </button>
                 </div>
               </div>
             </div>
