@@ -5,6 +5,29 @@ import { StrategyType, MessageAnalysis } from "./types";
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 /**
+ * Transcribes audio data using Gemini's audio processing capabilities.
+ */
+export const transcribeAudio = async (base64Audio: string, mimeType: string): Promise<string> => {
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: [
+      {
+        parts: [
+          {
+            inlineData: {
+              data: base64Audio,
+              mimeType: mimeType
+            }
+          },
+          { text: "Transcribe this audio accurately. If there is no speech, return an empty string. Only return the transcription text, nothing else." }
+        ]
+      }
+    ]
+  });
+  return response.text?.trim() || "";
+};
+
+/**
  * Analyzes a specific message to provide 'cheat' strategies/replies.
  */
 export const analyzeAndGenerateReplies = async (
